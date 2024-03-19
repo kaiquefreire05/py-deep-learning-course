@@ -1,5 +1,7 @@
 #%% Importações
 
+import numpy as np
+import matplotlib.pyplot as plt
 from keras.datasets import mnist  # base de dados
 from keras.models import Sequential  # rede neural sequencial
 from keras.layers import Dense  # camada densa (interligada em todos os neurônios)
@@ -63,3 +65,21 @@ test_base = gerador_test.flow(x= x_test, y= y_test, batch_size= 128)
 
 classificador.fit_generator(train_base, steps_per_epoch= 60000 / 128, epochs= 5, 
                             validation_data= test_base, validation_steps= 10000 / 128)
+
+#%% Classificando usando apenas 1 imagem
+
+random_index = np.random.randint(0, len(x_test)) # gerando um número aleatório na variável de teste
+random_image = x_test[random_index] # obtém a imagem com o index
+true_label = np.argmax(y_test[random_index])  # obtendo o real resultado da imagem
+
+# Mostra a imagem selecionada
+plt.imshow(random_image.squeeze(), cmap='gray')
+plt.title(f'Label: {true_label}')
+plt.axis('off')
+plt.show()
+
+# Fazendo predição
+prediction = classificador.predict(np.expand_dims(random_image, axis=0))
+predicted_label = np.argmax(prediction)
+
+print(f'Valor identificado: {predicted_label}')
