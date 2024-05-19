@@ -12,7 +12,7 @@ I'm excited to share my progress in this repository, where you'll find in-progre
 
 "Deep Learning with Python from A to Z - The Complete Course" is a comprehensive course that covers a wide range of topics related to Deep Learning. From the fundamentals of artificial neural networks to the most advanced techniques, this course provides a solid theoretical understanding combined with a practical approach through real projects and code examples.
 
-## Developed Projects (in progress)
+## Developed Projects
 
 - Classification of cancer (malignant or benign) based on tumor data
 - Classification of plant types
